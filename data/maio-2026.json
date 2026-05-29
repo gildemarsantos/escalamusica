@@ -1,0 +1,37 @@
+[
+  {
+    "dia": "Domingo 03/05",
+    "horario": "07h",
+    "equipe": "Cristina",
+    "observacao": "Missa da manhã",
+    "destaque": true
+  },
+  {
+    "dia": "Domingo 03/05",
+    "horario": "19h",
+    "equipe": "Nova Canção",
+    "observacao": "Missa da noite",
+    "destaque": true
+  },
+  {
+    "dia": "Segunda 04/05",
+    "horario": "19h",
+    "equipe": "Stefany",
+    "observacao": "Missa semanal",
+    "destaque": false
+  },
+  {
+    "dia": "Terça 05/05",
+    "horario": "19h",
+    "equipe": "Gil",
+    "observacao": "Missa semanal",
+    "destaque": false
+  },
+  {
+    "dia": "Domingo 10/05",
+    "horario": "07h",
+    "equipe": "Novo Ser",
+    "observacao": "Missa da manhã",
+    "destaque": true
+  }
+]

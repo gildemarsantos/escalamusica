@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Escala Pastoral da Música</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body class="bg-gray-100 text-gray-800">
+
+        <header
+            class="sticky top-0 z-50 bg-gradient-to-r from-red-900 to-red-700 text-white shadow-xl">
+
+            <div
+                class="max-w-7xl mx-auto px-6 py-4 flex flex-row items-center justify-between w-full gap-6 relative">
+
+                <div class="flex items-center gap-6">
+                    <div
+                        class="relative w-24 h-24 md:w-28 md:h-28 flex-shrink-0">
+                        <img
+                            src="img/sao-vicente.jpg"
+                            alt="São Vicente de Paulo"
+                            class="w-full h-full object-cover rounded-full border-2 border-white shadow-md" />
+                    </div>
+
+                    <div class="space-y-1 text-left">
+                        <p
+                            class="uppercase tracking-[3px] text-[10px] md:text-xs font-bold text-red-200 opacity-90">Paróquia
+                            São Vicente de Paulo</p>
+                        <h1
+                            class="text-xl md:text-3xl font-black drop-shadow-md leading-tight">
+                            Escala da Pastoral da Música
+                        </h1>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white/10 px-4 py-2 rounded-xl text-sm font-bold border border-white/20 whitespace-nowrap">
+                    Ano 2026
+                </div>
+
+            </div>
+
+            <nav class="bg-red-950 border-t border-red-800/60 overflow-x-auto">
+                <div
+                    class="max-w-7xl mx-auto flex justify-start md:justify-center whitespace-nowrap px-4 scrollbar-none">
+                    <button onclick="mudarMes('janeiro')" id="btn-janeiro"
+                        class="px-4 py-2.5 text-xs font-bold text-red-200 hover:bg-red-900 hover:text-white transition border-b-2 border-transparent">Jan</button>
+                    <button onclick="mudarMes('fevereiro')" id="btn-fevereiro"
+                        class="px-4 py-2.5 text-xs font-bold text-red-200 hover:bg-red-900 hover:text-white transition border-b-2 border-transparent">Fev</button>
+                    <button onclick="mudarMes('marco')" id="btn-marco"
+                        class="px-4 py-2.5 text-xs font-bold text-red-200 hover:bg-red-900 hover:text-white transition border-b-2 border-transparent">Mar</button>
+                    <button onclick="mudarMes('abril')" id="btn-abril"
+                        class="px-4 py-2.5 text-xs font-bold text-red-200 hover:bg-red-900 hover:text-white transition border-b-2 border-transparent">Abr</button>
+                    <button onclick="mudarMes('maio')" id="btn-maio"
+                        class="px-4 py-2.5 text-xs font-bold text-red-200 hover:bg-red-900 hover:text-white transition border-b-2 border-transparent">Mai</button>
+                    <button onclick="mudarMes('junho')" id="btn-junho"
+                        class="px-4 py-2.5 text-xs font-bold text-red-200 hover:bg-red-900 hover:text-white transition border-b-2 border-transparent">Jun</button>
+                    <button onclick="mudarMes('julho')" id="btn-julho"
+                        class="px-4 py-2.5 text-xs font-bold text-red-200 hover:bg-red-900 hover:text-white transition border-b-2 border-transparent">Jul</button>
+                    <button onclick="mudarMes('agosto')" id="btn-agosto"
+                        class="px-4 py-2.5 text-xs font-bold text-red-200 hover:bg-red-900 hover:text-white transition border-b-2 border-transparent">Ago</button>
+                    <button onclick="mudarMes('setembro')" id="btn-setembro"
+                        class="px-4 py-2.5 text-xs font-bold text-red-200 hover:bg-red-900 hover:text-white transition border-b-2 border-transparent">Set</button>
+                    <button onclick="mudarMes('outubro')" id="btn-outubro"
+                        class="px-4 py-2.5 text-xs font-bold text-red-200 hover:bg-red-900 hover:text-white transition border-b-2 border-transparent">Out</button>
+                    <button onclick="mudarMes('novembro')" id="btn-novembro"
+                        class="px-4 py-2.5 text-xs font-bold text-red-200 hover:bg-red-900 hover:text-white transition border-b-2 border-transparent">Nov</button>
+                    <button onclick="mudarMes('dezembro')" id="btn-dezembro"
+                        class="px-4 py-2.5 text-xs font-bold text-red-200 hover:bg-red-900 hover:text-white transition border-b-2 border-transparent">Dez</button>
+                </div>
+            </nav>
+        </header>
+
+        <div class="max-w-7xl mx-auto px-4 mt-6">
+            <h2 id="tituloMes"
+                class="text-2xl font-black text-gray-800 border-b-4 border-red-700 inline-block pb-1 capitalize italic">
+                Mês
+            </h2>
+        </div>
+
+        <section class="max-w-7xl mx-auto px-4 py-4">
+            <div
+                class="bg-yellow-100 border-l-4 border-yellow-500 rounded-2xl p-4 shadow-md">
+                <h3
+                    class="text-lg font-bold text-yellow-800 mb-2 flex items-center gap-2">
+                    ⚠️ Avisos Importantes
+                </h3>
+                <ul
+                    class="list-disc list-inside space-y-1 text-base text-yellow-900">
+                    <li>Chegar com 30 minutos de antecedência para organizar o
+                        som.</li>
+                    <li>Zelar pelos instrumentos e guardá-los após a
+                        celebração.</li>
+                    <li>Qualquer imprevisto, avisar com antecedência no grupo da
+                        Pastoral.</li>
+                    <li>Grupo do Whatsapp: <a id="clkaqui"
+                            href="https://chat.whatsapp.com/..." target="_blank"
+                            class="text-blue-600 hover:underline font-bold">CLICK
+                            AQUI!</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="secaoVazia"
+            class="max-w-7xl mx-auto px-4 py-12 text-center hidden">
+            <div
+                class="bg-white rounded-3xl p-8 shadow-xl border border-gray-200">
+                <p class="text-xl text-gray-400 font-bold">A escala para este
+                    mês ainda não foi liberada.</p>
+            </div>
+        </section>
+
+        <section id="containerCards" class="max-w-7xl mx-auto px-4 py-4">
+            <div id="cardsEscala"
+                class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </section>
+
+        <section id="containerTabela" class="max-w-7xl mx-auto px-4 py-4 mb-16">
+            <div
+                class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-base">
+                        <thead
+                            class="bg-gray-50 border-b border-gray-200 text-gray-600">
+                            <tr>
+                                <th class="p-4 text-left font-bold">Dia</th>
+                                <th class="p-4 text-left font-bold">Horário</th>
+                                <th class="p-4 text-left font-bold">Equipe de
+                                    Canto</th>
+                                <th class="p-4 text-left font-bold">Observação /
+                                    Liturgia</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabelaEscalas"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-red-950 text-white py-6">
+            <div class="max-w-7xl mx-auto px-4 text-center space-y-2">
+                <h4 class="text-lg font-black">Pastoral da Música</h4>
+                <p class="text-red-300 text-xs">Diocese de Formosa — GO</p>
+            </div>
+        </footer>
+
+        <script src="js/script.js"></script>
+    </body>
+</html>
