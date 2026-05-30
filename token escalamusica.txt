@@ -1,5 +1,0 @@
-token escalamusica
-
-tokem do meuvscode para configurar git no vscode
-
-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
