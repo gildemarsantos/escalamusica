@@ -65,18 +65,15 @@ const mesesChaves = [
 
 // 2. FUNÇÃO PARA CONTROLAR A RENDERIZAÇÃO E O VISUAL DOS BOTÕES
 function mudarMes(mesSelecionado) {
-    // Atualiza o título da página com o mês selecionado
     document.getElementById('tituloMes').innerText = `Escala de ${mesSelecionado}`;
 
-    // Atualiza o estado visual de todos os botões do menu
+    // Atualiza os botões do menu (Mantido igual)
     mesesChaves.forEach(mes => {
         const botao = document.getElementById(`btn-${mes}`);
         if (botao) {
             if (mes === mesSelecionado) {
-                // Estado Ativo Compacto (bg-red-900 e borda inferior amarela de espessura 2)
                 botao.className = "px-4 py-2.5 text-xs font-bold bg-red-900 text-white transition border-b-2 border-yellow-400";
             } else {
-                // Estado Padrão Compacto
                 botao.className = "px-4 py-2.5 text-xs font-bold text-red-200 hover:bg-red-900 hover:text-white transition border-b-2 border-transparent";
             }
         }
@@ -88,13 +85,11 @@ function mudarMes(mesSelecionado) {
     const containerCards = document.getElementById('containerCards');
     const containerTabela = document.getElementById('containerTabela');
 
-    // Limpa exibições anteriores
     cardsContainer.innerHTML = '';
     tabelaContainer.innerHTML = '';
 
     const dados = bancoEscalas[mesSelecionado] || [];
 
-    // Se o mês selecionado não possuir dados (Meses Vazios)
     if (dados.length === 0) {
         secaoVazia.classList.remove('hidden');
         containerCards.classList.add('hidden');
@@ -102,27 +97,56 @@ function mudarMes(mesSelecionado) {
         return;
     }
 
-    // Se houver dados, reexibe os blocos
     secaoVazia.classList.add('hidden');
     containerCards.classList.remove('hidden');
     containerTabela.classList.remove('hidden');
 
-    // Monta os Cards e as Linhas da Tabela
+    // --- PEGAR A DATA ATUAL DO COMPUTADOR ---
+    const dataHoje = new Date();
+    const diaAtual = dataHoje.getDate(); // Ex: 15, 20, 30...
+    const numeroMesAtual = dataHoje.getMonth(); // 0 a 11
+    const nomeMesAtual = mesesChaves[numeroMesAtual]; // 'maio', 'junho'...
+
     dados.forEach(item => {
+        // Extrai o número do dia da escala (pega os 2 primeiros caracteres. Ex: "03/05" vira 3)
+        const diaDaMissa = parseInt(item.dia.substring(0, 2));
+        
+        // TESTE INTELIGENTE: A missa já passou? 
+        // É considerada "passada" se estivermos visualizando o mês atual e o dia da missa for menor que o dia de hoje,
+        // OU se estivermos visualizando um mês que já ficou para trás no ano.
+        const mesJaPassou = mesesChaves.indexOf(mesSelecionado) < numeroMesAtual;
+        const diaJaPassouNoMesAtual = (mesSelecionado === nomeMesAtual && diaDaMissa < diaAtual);
+        
+        const missaConcluida = mesJaPassou || diaJaPassouNoMesAtual;
+
+        // --- CLASSES VISUAIS BASEADAS NO STATUS ---
+        // Se a missa já passou, aplicamos filtros de cinza (grayscale) e opacidade reduzida
+        const estiloCard = missaConcluida 
+            ? "bg-gray-100 text-gray-400 opacity-50 grayscale border border-gray-300" 
+            : (item.destaque ? "bg-white border border-yellow-400 shadow-xl" : "bg-white border border-gray-200 shadow-md");
+
+        const estiloLinhaTabela = missaConcluida 
+            ? "bg-gray-100/70 text-gray-400 line-through opacity-60" 
+            : (item.destaque ? "bg-yellow-50/60 hover:bg-yellow-100/80" : "hover:bg-gray-50");
+
+        const textoObservacao = missaConcluida 
+            ? `✔️ Celebrada | ${item.observacao}` 
+            : item.observacao;
+
         // --- GERAR CARDS ---
         if (item.destaque) {
             const card = document.createElement('div');
-            card.className = "rounded-3xl shadow-xl overflow-hidden border card-destaque border-yellow-400";
+            card.className = `rounded-3xl overflow-hidden transition-all ${estiloCard}`;
             card.innerHTML = `
-                <div class="bg-red-700 text-white px-5 py-3 text-xs font-bold uppercase tracking-wider">
-                    ${item.observacao || 'Destaque'}
+                <div class="${missaConcluida ? 'bg-gray-400' : 'bg-red-700'} text-white px-5 py-3 text-xs font-bold uppercase tracking-wider">
+                    ${missaConcluida ? 'Missa Concluída' : (item.observacao || 'Destaque')}
                 </div>
                 <div class="p-5 space-y-4">
                     <div class="flex justify-between items-center">
-                        <span class="text-base font-bold text-gray-600">${item.dia}</span>
-                        <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">${item.horario}</span>
+                        <span class="text-base font-bold">${item.dia}</span>
+                        <span class="${missaConcluida ? 'bg-gray-200 text-gray-500' : 'bg-red-100 text-red-800'} text-xs font-bold px-3 py-1 rounded-full">${item.horario}</span>
                     </div>
-                    <p class="text-2xl font-black text-red-900">${item.equipe}</p>
+                    <p class="text-2xl font-black ${missaConcluida ? 'text-gray-400' : 'text-red-900'}">${item.equipe}</p>
                 </div>
             `;
             cardsContainer.appendChild(card);
@@ -130,12 +154,20 @@ function mudarMes(mesSelecionado) {
 
         // --- GERAR LINHAS DA TABELA ---
         const linha = document.createElement('tr');
-        linha.className = `border-t transition-colors ${item.destaque ? 'bg-yellow-50/60 hover:bg-yellow-100/80' : 'hover:bg-gray-50'}`;
+        linha.className = `border-t transition-colors ${estiloLinhaTabela}`;
         linha.innerHTML = `
-            <td class="p-4 font-semibold text-gray-900">${item.dia}</td>
-            <td class="p-4 text-gray-700"><span class="bg-gray-200 text-gray-800 font-bold px-2 py-1 rounded text-xs">${item.horario}</span></td>
-            <td class="p-4 font-bold ${item.equipe === 'Não Haverá' || item.equipe === 'Sem equipe' ? 'text-gray-400 italic' : 'text-red-800'}">${item.equipe}</td>
-            <td class="p-4 text-gray-600 italic text-sm">${item.observacao}</td>
+            <td class="p-4 font-semibold">${item.dia}</td>
+            <td class="p-4">
+                <span class="${missaConcluida ? 'bg-gray-200 text-gray-400' : 'bg-gray-200 text-gray-800'} font-bold px-2 py-1 rounded text-xs">
+                    ${item.horario}
+                </span>
+            </td>
+            <td class="p-4 font-bold ${missaConcluida ? 'text-gray-400' : (item.equipe === 'Não Haverá' || item.equipe === 'Sem equipe' ? 'text-gray-400 italic' : 'text-red-800')}">
+                ${item.equipe}
+            </td>
+            <td class="p-4 italic text-sm ${missaConcluida ? 'text-gray-400 no-underline' : 'text-gray-600'}">
+                ${textoObservacao}
+            </td>
         `;
         tabelaContainer.appendChild(linha);
     });
