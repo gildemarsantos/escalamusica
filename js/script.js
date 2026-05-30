@@ -110,27 +110,27 @@ function mudarMes(mesSelecionado) {
     dados.forEach(item => {
         // Extrai o número do dia da escala (pega os 2 primeiros caracteres. Ex: "03/05" vira 3)
         const diaDaMissa = parseInt(item.dia.substring(0, 2));
-        
+
         // TESTE INTELIGENTE: A missa já passou? 
         // É considerada "passada" se estivermos visualizando o mês atual e o dia da missa for menor que o dia de hoje,
         // OU se estivermos visualizando um mês que já ficou para trás no ano.
         const mesJaPassou = mesesChaves.indexOf(mesSelecionado) < numeroMesAtual;
         const diaJaPassouNoMesAtual = (mesSelecionado === nomeMesAtual && diaDaMissa < diaAtual);
-        
+
         const missaConcluida = mesJaPassou || diaJaPassouNoMesAtual;
 
         // --- CLASSES VISUAIS BASEADAS NO STATUS ---
         // Se a missa já passou, aplicamos filtros de cinza (grayscale) e opacidade reduzida
-        const estiloCard = missaConcluida 
-            ? "bg-gray-100 text-gray-400 opacity-50 grayscale border border-gray-300" 
+        const estiloCard = missaConcluida
+            ? "bg-gray-100 text-gray-400 opacity-50 grayscale border border-gray-300"
             : (item.destaque ? "bg-white border border-yellow-400 shadow-xl" : "bg-white border border-gray-200 shadow-md");
 
-        const estiloLinhaTabela = missaConcluida 
-            ? "bg-gray-100/70 text-gray-400 line-through opacity-60" 
+        const estiloLinhaTabela = missaConcluida
+            ? "bg-gray-100/70 text-gray-400 line-through opacity-60"
             : (item.destaque ? "bg-yellow-50/60 hover:bg-yellow-100/80" : "hover:bg-gray-50");
 
-        const textoObservacao = missaConcluida 
-            ? `✔️ Celebrada | ${item.observacao}` 
+        const textoObservacao = missaConcluida
+            ? `✔️ Celebrada | ${item.observacao}`
             : item.observacao;
 
         // --- GERAR CARDS ---
@@ -183,4 +183,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Carrega a escala e destaca o botão desse mês automaticamente
     mudarMes(mesAuto);
+});
+
+
+// --- ANIMAÇÃO DO CABEÇALHO (DO JEITO QUE VOCÊ GOSTOU + MARGEM DE SEGURANÇA) ---
+let encolhido = false;
+
+window.addEventListener('scroll', () => {
+    const container = document.getElementById('headerContainer');
+    const foto = document.getElementById('fotoSanto');
+    const subtitulo = document.getElementById('subtituloParoquia');
+    const titulo = document.getElementById('tituloPastoral');
+    const seloAno = document.getElementById('seloAno');
+
+    const topoDaTela = window.scrollY;
+
+    // Se rolar para baixo de 70px -> Encolhe usando as suas classes originais
+    if (topoDaTela > 70 && !encolhido) {
+        encolhido = true;
+        
+        container.className = "max-w-7xl mx-auto px-6 flex flex-row items-center justify-between w-full transition-all duration-500 py-2";
+        
+        foto.className = "relative w-14 h-14 md:w-16 md:h-16 flex-shrink-0 transition-all duration-500 ease-in-out";
+        
+        subtitulo.className = "uppercase tracking-[2px] text-[9px] md:text-[10px] font-bold text-red-200 opacity-90 transition-all duration-500";
+        titulo.className = "text-base md:text-xl font-black drop-shadow-md leading-tight transition-all duration-500";
+        
+        seloAno.className = "bg-white/10 px-4 py-2 rounded-xl text-xs md:text-sm font-bold border border-white/20 whitespace-nowrap transition-all duration-500";
+    } 
+    // Só aceita expandir de novo se voltar bem lá para o topo (abaixo de 20px)
+    // Isso mata a tremedeira na rolagem lenta e mantém o efeito que você preferiu!
+    else if (topoDaTela < 20 && encolhido) {
+        encolhido = false;
+        
+        container.className = "max-w-7xl mx-auto px-6 flex flex-row items-center justify-between w-full transition-all duration-500 py-10";
+        
+        foto.className = "relative w-32 h-32 md:w-48 md:h-48 flex-shrink-0 transition-all duration-500 ease-in-out";
+        
+        subtitulo.className = "uppercase tracking-[4px] md:tracking-[6px] text-xs md:text-sm font-bold text-red-200 opacity-90 transition-all duration-500";
+        titulo.className = "text-2xl md:text-5xl lg:text-6xl font-black drop-shadow-xl leading-tight transition-all duration-500";
+        
+        seloAno.className = "bg-white/10 px-6 py-3 rounded-2xl text-sm md:text-xl font-bold border border-white/20 whitespace-nowrap transition-all duration-500";
+    }
 });
