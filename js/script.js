@@ -50,7 +50,7 @@ const bancoEscalas = {
         { "dia": "23 (terça)", "horario": "19 horas", "equipe": "Não Haverá", "observacao": "-", "destaque": false },
         { "dia": "26 (sexta)", "horario": "19 horas", "equipe": "Não Haverá", "observacao": "-", "destaque": false },
         { "dia": "28 (domingo)", "horario": "07 horas", "equipe": "Totus Tuus Mariae", "observacao": "Missa da Manhã", "destaque": true },
-        { "dia": "28 (domingo)", "horario": "19 horas", "equipe": "Luiz Henrique", "observacao": "Missa da Noite", "destaque": true },
+        { "dia": "28 (domingo)", "horario": "19 horas", "equipe": "Nova Canção", "observacao": "Missa da Noite", "destaque": true },
         { "dia": "29 (segunda)", "horario": "19 horas", "equipe": "Não Haverá", "observacao": "-", "destaque": false },
         { "dia": "30 (terça)", "horario": "19 horas", "equipe": "Não Haverá", "observacao": "-", "destaque": false }
     ],
