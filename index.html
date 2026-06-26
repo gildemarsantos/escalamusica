@@ -152,5 +152,27 @@
         </footer>
 
         <script src="js/script.js"></script>
+
+        
+        <div id="modalAvisoJulho" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 hidden transition-opacity duration-300">
+            <div id="modalAvisoJulhoContent" class="bg-white rounded-3xl p-6 md:p-8 max-w-sm w-[90%] text-center shadow-2xl transform transition-transform duration-300 scale-95">
+                <div class="w-16 h-16 bg-red-100 text-red-700 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl shadow-sm">
+                    📅
+                </div>
+                <h3 class="text-xl font-black text-gray-800 mb-2">Nova Escala!</h3>
+                <p class="text-gray-600 mb-6 text-sm">A escala da Pastoral da Música para o mês de <strong>Julho</strong> já está disponível para consulta.</p>
+                <div class="flex flex-col gap-3">
+                    <button onclick="irParaJulho()" class="w-full bg-gradient-to-r from-red-800 to-red-700 hover:from-red-900 hover:to-red-800 text-white font-bold py-3 px-4 rounded-xl transition-all shadow-md">
+                        Ir para Julho
+                    </button>
+                    <button onclick="fecharAvisoJulho()" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-3 px-4 rounded-xl transition-colors">
+                        OK, entendi
+                    </button>
+                </div>
+            </div>
+        </div>
+        <script src="js/script.js"></script>
+    </body>
+</html>
     </body>
 </html>
