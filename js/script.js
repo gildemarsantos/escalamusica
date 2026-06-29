@@ -55,15 +55,15 @@ const bancoEscalas = {
         { "dia": "30 (terça)", "horario": "19 horas", "equipe": "Não Haverá", "observacao": "-", "destaque": false }
     ],
     julho: [
-        { "dia": "03 (sexta)", "horario": "18 horas", "equipe": "Gil", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "03 (sexta)", "horario": "18 horas", "equipe": "Providência Divina", "observacao": "Missa semanal", "destaque": false },
         { "dia": "05 (domingo)", "horario": "07 horas", "equipe": "Cristina", "observacao": "Missa da Manhã", "destaque": true },
         { "dia": "05 (domingo)", "horario": "19 horas", "equipe": "Coral das Crianças", "observacao": "Missa da Noite", "destaque": true },
-        { "dia": "06 (segunda)", "horario": "19 horas", "equipe": "Gil", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "06 (segunda)", "horario": "19 horas", "equipe": "Providência Divina", "observacao": "Missa semanal", "destaque": false },
         { "dia": "07 (terça)", "horario": "19 horas", "equipe": "Stefani", "observacao": "Missa semanal", "destaque": false },
         { "dia": "10 (sexta)", "horario": "19 horas", "equipe": "Sem Equipe", "observacao": "-", "destaque": false },
         { "dia": "12 (domingo)", "horario": "07 horas", "equipe": "Novo Ser", "observacao": "Missa da Manhã", "destaque": true },
         { "dia": "12 (domingo)", "horario": "19 horas", "equipe": "Nova Canção", "observacao": "Missa da Noite", "destaque": true },
-        { "dia": "13 (segunda)", "horario": "19 horas", "equipe": "Gil", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "13 (segunda)", "horario": "19 horas", "equipe": "Sem Equipe", "observacao": "Missa semanal", "destaque": false },
         { "dia": "14 (terça)", "horario": "19 horas", "equipe": "Providência Divina", "observacao": "Missa semanal", "destaque": false },
         { "dia": "17 (sexta)", "horario": "19 horas", "equipe": "Sem Equipe", "observacao": "-", "destaque": false },
         { "dia": "19 (domingo)", "horario": "07 horas", "equipe": "Paula e Stefani", "observacao": "Missa da Manhã", "destaque": true },
