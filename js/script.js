@@ -76,7 +76,34 @@ const bancoEscalas = {
         { "dia": "27 (segunda)", "horario": "19 horas", "equipe": "Gil", "observacao": "Missa semanal", "destaque": false },
         { "dia": "28 (terça)", "horario": "19 horas", "equipe": "Providência Divina", "observacao": "Missa semanal", "destaque": false },
         { "dia": "31 (sexta)", "horario": "19 horas", "equipe": "Sem equipe", "observacao": "-", "destaque": false }
-    ], agosto: [], setembro: [], outubro: [], novembro: [], dezembro: []
+    ], agosto: [
+        { "dia": "02 (domingo)", "horario": "07 horas", "equipe": "Cristina", "observacao": "Missa da Manhã", "destaque": true },
+        { "dia": "02 (domingo)", "horario": "19 horas", "equipe": "Missa das Crianças", "observacao": "Missa da Noite", "destaque": true },
+        { "dia": "03 (segunda)", "horario": "19 horas", "equipe": "Sem equipe", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "04 (terça)", "horario": "19 horas", "equipe": "Stefani", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "07 (sexta)", "horario": "18h30", "equipe": "Gil", "observacao": "-", "destaque": false },
+        { "dia": "09 (domingo)", "horario": "07 horas", "equipe": "Nova Canção", "observacao": "Missa da Manhã", "destaque": true },
+        { "dia": "09 (domingo)", "horario": "19 horas", "equipe": "Providência Divina", "observacao": "Missa da Noite", "destaque": true },
+        { "dia": "10 (segunda)", "horario": "19 horas", "equipe": "A Definir", "observacao": "Cerco de Jericó", "destaque": false },
+        { "dia": "11 (terça)", "horario": "19 horas", "equipe": "A Definir", "observacao": "Cerco de Jericó", "destaque": false },
+        { "dia": "12 (quarta)", "horario": "19 horas", "equipe": "A Definir", "observacao": "Cerco de Jericó", "destaque": false },
+        { "dia": "13 (quinta)", "horario": "19 horas", "equipe": "A Definir", "observacao": "Cerco de Jericó", "destaque": false },
+        { "dia": "14 (sexta)", "horario": "19 horas", "equipe": "A Definir", "observacao": "Cerco de Jericó", "destaque": false },
+        { "dia": "15 (sábado)", "horario": "19 horas", "equipe": "A Definir", "observacao": "Cerco de Jericó", "destaque": false },
+        { "dia": "16 (domingo)", "horario": "07 horas", "equipe": "Kairós", "observacao": "Missa da Manhã - Cerco de Jericó", "destaque": true },
+        { "dia": "16 (domingo)", "horario": "18 horas", "equipe": "A definir", "observacao": "Missa da Noite - Cerco de Jericó", "destaque": true },
+        { "dia": "17 (segunda)", "horario": "19 horas", "equipe": "Gil", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "18 (terça)", "horario": "19 horas", "equipe": "Providência Divina", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "21 (sexta)", "horario": "19 horas", "equipe": "Sem equipe", "observacao": "-", "destaque": false },
+        { "dia": "23 (domingo)", "horario": "07 horas", "equipe": "Totus Tuus Mariae", "observacao": "Missa da Manhã - Cerco de Jericó", "destaque": true },
+        { "dia": "23 (domingo)", "horario": "19 horas", "equipe": "Novo Ser", "observacao": "Missa da Noite - Cerco de Jericó", "destaque": true },
+        { "dia": "24 (segunda)", "horario": "19 horas", "equipe": "Stefani", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "25 (terça)", "horario": "19 horas", "equipe": "Gil", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "28 (sexta)", "horario": "19 horas", "equipe": "A definir", "observacao": "-", "destaque": false },
+        { "dia": "30 (domingo)", "horario": "07 horas", "equipe": "Providência Divina", "observacao": "Missa da Manhã", "destaque": true },
+        { "dia": "30 (domingo)", "horario": "19 horas", "equipe": "Nova Canção", "observacao": "Missa da Noite", "destaque": true }
+    ], 
+    setembro: [], outubro: [], novembro: [], dezembro: []
 };
 
 // Mapeamento para traduzir o número do sistema para a chave do nosso banco
