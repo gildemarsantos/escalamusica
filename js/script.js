@@ -103,7 +103,34 @@ const bancoEscalas = {
         { "dia": "30 (domingo)", "horario": "07 horas", "equipe": "Providência Divina", "observacao": "Missa da Manhã", "destaque": true },
         { "dia": "30 (domingo)", "horario": "19 horas", "equipe": "Nova Canção", "observacao": "Missa da Noite", "destaque": true }
     ], 
-    setembro: [], outubro: [], novembro: [], dezembro: []
+    setembro: [
+        { "dia": "01 (terça)", "horario": "19 horas", "equipe": "Stefani", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "04 (sexta)", "horario": "18h30", "equipe": "Cristina", "observacao": "-", "destaque": false },
+        { "dia": "06 (domingo)", "horario": "07 horas", "equipe": "Cristina", "observacao": "Missa da Manhã", "destaque": true },
+        { "dia": "06 (domingo)", "horario": "19 horas", "equipe": "Coral das Crianças", "observacao": "Missa da Noite", "destaque": true },
+        { "dia": "07 (segunda)", "horario": "19 horas", "equipe": "Gil", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "08 (terça)", "horario": "19 horas", "equipe": "Elisângela", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "11 (sexta)", "horario": "19 horas", "equipe": "A Definir", "observacao": "-", "destaque": false },
+        { "dia": "13 (domingo)", "horario": "07 horas", "equipe": "Providência Divina", "observacao": "Missa da Manhã", "destaque": true },
+        { "dia": "13 (domingo)", "horario": "19 horas", "equipe": "Nova Canção", "observacao": "Missa da Noite", "destaque": true },
+        { "dia": "14 (segunda)", "horario": "19 horas", "equipe": "Stefani", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "15 (terça)", "horario": "19 horas", "equipe": "Gil", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "18 (sexta)", "horario": "19 horas", "equipe": "Banda Israel", "observacao": "Novena São Vicente", "destaque": false },
+        { "dia": "19 (sábado)", "horario": "19 horas", "equipe": "Eloisa", "observacao": "Novena São Vicente", "destaque": false },
+        { "dia": "20 (domingo)", "horario": "07 horas", "equipe": "Não Haverá Missa", "observacao": "Missa da Manhã - Novena São Vicente", "destaque": true },
+        { "dia": "20 (domingo)", "horario": "19 horas", "equipe": "Providência Divina", "observacao": "Missa da Noite - Novena São Vicente", "destaque": true },
+        { "dia": "21 (segunda)", "horario": "19 horas", "equipe": "Nova Canção", "observacao": "Novena São Vicente", "destaque": false },
+        { "dia": "22 (terça)", "horario": "19 horas", "equipe": "Damião", "observacao": "Novena São Vicente", "destaque": false },
+        { "dia": "23 (quarta)", "horario": "19 horas", "equipe": "Cristina", "observacao": "Novena São Vicente", "destaque": false },
+        { "dia": "24 (quinta)", "horario": "19 horas", "equipe": "Novo Ser", "observacao": "Novena São Vicente", "destaque": false },
+        { "dia": "25 (sexta)", "horario": "19 horas", "equipe": "Kairós", "observacao": "Novena São Vicente", "destaque": false },
+        { "dia": "26 (sábado)", "horario": "19 horas", "equipe": "Gustavo", "observacao": "Novena São Vicente", "destaque": false },
+        { "dia": "27 (domingo)", "horario": "07 horas", "equipe": "Não Haverá Missa", "observacao": "Missa da Manhã - Novena São Vicente", "destaque": true },
+        { "dia": "27 (domingo)", "horario": "19 horas", "equipe": "Magnifica", "observacao": "Missa da Noite - Novena São Vicente", "destaque": true },
+        { "dia": "28 (segunda)", "horario": "19 horas", "equipe": "Stefani", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "29 (terça)", "horario": "19 horas", "equipe": "Gil", "observacao": "Missa semanal", "destaque": false }
+    ],
+    outubro: [], novembro: [], dezembro: []
 };
 
 // Mapeamento para traduzir o número do sistema para a chave do nosso banco
