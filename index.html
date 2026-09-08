@@ -9,6 +9,36 @@
     </head>
     <body class="bg-gray-100 text-gray-800">
 
+        <!-- POPUP DE AVISO IMPORTANTE -->
+            <div id="modalAviso" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="tituloModal">
+                <article class="modal-content">
+                    <h2 id="tituloModal" class="modal-titulo">⚠️ AVISO IMPORTANTE</h2>
+                    
+                    <div class="modal-corpo">
+                        <p><strong>Cadastramento dos Bingos:</strong> Obrigatoriamente até o dia <strong>10/09</strong>.</p>
+                        <p><strong>Acerto Financeiro (Bingos e Almoço):</strong> Até sexta-feira, <strong>11/09</strong>.</p>
+                        
+                        <hr class="modal-divisor">
+                        
+                        <h3>PAGAMENTO E CONTRIBUIÇÃO VIA PIX</h3>
+                        <p>Chave PIX para contribuição, acerto dos bingos e almoço:</p>
+                        
+                        <div class="caixa-pix">
+                            <p><strong>Chave PIX (Telefone):</strong> 61998209451</p>
+                            <p><strong>Titular:</strong> Gildemar Pereira dos Santos</p>
+                            <p><strong>Banco:</strong> Mercado Pago</p>
+                        </div>
+                        
+                        <p class="alerta-pix">⚠️ Conferir os dados bancários antes da transferência.</p>
+                        <p class="nota-pix"><strong>Atenção:</strong> Peço que, ao fazer a transferência ou enviar o comprovante, identifiquem claramente a qual item o valor se refere (ex.: Ingressos, Bingos ou Alimentos).</p>
+                    </div>
+                    
+                    <button id="btnFecharModal" class="btn-fechar-modal" onclick="fecharModal()">Estou ciente, fechar aviso</button>
+                </article>
+            </div>
+
+
+
         <header
             class="sticky top-0 z-50 bg-gradient-to-r from-red-900 to-red-700 text-white shadow-xl">
 

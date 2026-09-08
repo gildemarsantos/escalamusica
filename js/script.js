@@ -1,4 +1,4 @@
-// 1. BANCO DE DADOS DAS ESCALAS (MAIO, JUNHO E JULHO PREENCHIDOS)
+// 1. BANCO DE DADOS DAS ESCALAS
 const bancoEscalas = {
     janeiro: [],
     fevereiro: [],
@@ -76,7 +76,8 @@ const bancoEscalas = {
         { "dia": "27 (segunda)", "horario": "19 horas", "equipe": "Gil", "observacao": "Missa semanal", "destaque": false },
         { "dia": "28 (terça)", "horario": "19 horas", "equipe": "Providência Divina", "observacao": "Missa semanal", "destaque": false },
         { "dia": "31 (sexta)", "horario": "19 horas", "equipe": "Sem equipe", "observacao": "-", "destaque": false }
-    ], agosto: [
+    ],
+    agosto: [
         { "dia": "02 (domingo)", "horario": "07 horas", "equipe": "Cristina", "observacao": "Missa da Manhã", "destaque": true },
         { "dia": "02 (domingo)", "horario": "19 horas", "equipe": "Providência Divina", "observacao": "Missa da Noite", "destaque": true },
         { "dia": "03 (segunda)", "horario": "19 horas", "equipe": "Sem equipe", "observacao": "Missa semanal", "destaque": false },
@@ -247,29 +248,24 @@ function mudarMes(mesSelecionado) {
 }
 
 // ==========================================
-// 3. INICIALIZAÇÃO AUTOMÁTICA DETECTANDO O MÊS ATUAL + ALERTA SE FOR JUNHO
+// 3. INICIALIZAÇÃO AUTOMÁTICA E POPUP
 // ==========================================
-let avisoJulhoVisto = false; // Variável para não ficar mostrando o aviso toda hora
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Pega o número do mês atual (0 a 11) baseado no relógio do dispositivo
-    const numeroMesAtual = new Date().getMonth();
+    
+    // Força a abertura direta e exclusiva na aba de Setembro
+    mudarMes('setembro');
 
-    // Converte o número para o nome da nossa chave correspondente
-    const mesAuto = mesesChaves[numeroMesAtual];
+    // Controle do Popup Financeiro (Aparece sempre até Outubro)
+    const modalAviso = document.getElementById('modalAviso');
+    const dataAtual = new Date();
+    const mesNumero = dataAtual.getMonth(); // Setembro = 8, Outubro = 9
 
-    // Carrega a escala e destaca o botão desse mês automaticamente
-    mudarMes(mesAuto);
-
-    // FORÇAR POPUP: Se o mês que abriu automaticamente for junho e o aviso ainda não foi visto, dispara o alerta!
-    if (mesAuto === 'junho' && !avisoJulhoVisto) {
-        // Um pequeno atraso de 1 segundo para a página desenhar tudo antes de pular o alerta
-        setTimeout(() => {
-            mostrarAvisoJulho();
-        }, 1000);
+    if (mesNumero < 9) {
+        if (modalAviso) modalAviso.classList.remove('hidden');
+    } else {
+        if (modalAviso) modalAviso.remove();
     }
 });
-
 
 // ==========================================
 // 4. ANIMAÇÃO DO CABEÇALHO 
@@ -305,7 +301,7 @@ window.addEventListener('scroll', () => {
 
 
 // ==========================================
-// 5. FUNÇÕES DO MODAL DE JULHO
+// 5. FUNÇÕES DO MODAL DE JULHO E POPUP GERAL
 // ==========================================
 function mostrarAvisoJulho() {
     const modal = document.getElementById('modalAvisoJulho');
@@ -335,11 +331,15 @@ function fecharAvisoJulho() {
             modal.classList.add('hidden');
         }, 300); 
     }
-    
-    avisoJulhoVisto = true; // Marca que o usuário já viu e clicou em OK
 }
 
 function irParaJulho() {
     fecharAvisoJulho(); // Fecha o modal primeiro
     mudarMes('julho');  // Muda a escala lá atrás
+}
+
+// --- FUNÇÃO DO NOVO POPUP DE AVISO (BINGOS) ---
+function fecharModal() {
+    const modal = document.getElementById('modalAviso');
+    if (modal) modal.classList.add('hidden');
 }

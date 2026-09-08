@@ -20,3 +20,82 @@ body {
   font-weight: bold;
 }
 
+/* --- POPUP / MODAL DE AVISO --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px); /* Deixa o site desfocado no fundo */
+    z-index: 999; /* Fica acima de tudo no site */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 16px;
+    max-width: 450px;
+    width: 100%;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    animation: fadeInModal 0.3s ease-out forwards;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-titulo {
+    background-color: var(--cor-principal);
+    color: #970b0b;
+    padding: 16px;
+    font-size: 20px;
+    text-align: center;
+    margin: 0;
+    font-weight: bold;
+}
+
+.modal-corpo {
+    padding: 24px;
+    color: #374151;
+    font-size: 14px;
+}
+
+.modal-corpo p { margin-bottom: 8px; }
+.modal-divisor { border: 0; border-top: 1px solid #e5e7eb; margin: 20px 0; }
+.modal-corpo h3 { color: var(--cor-principal); font-size: 15px; margin-bottom: 12px; text-align: center; }
+
+.caixa-pix {
+    background-color: #f3f4f6;
+    border: 2px dashed #9ca3af;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+.caixa-pix p { margin-bottom: 4px; font-size: 15px; }
+
+.alerta-pix { color: var(--cor-degrade); font-weight: bold; text-align: center; }
+.nota-pix { font-style: italic; font-size: 13px; color: #4b5563; line-height: 1.4; margin-top: 8px; text-align: justify; }
+
+.btn-fechar-modal {
+    display: block;
+    width: calc(100% - 48px);
+    margin: 0 auto 24px auto;
+    padding: 14px;
+    background-color: #970b0b; /* Verde aprovação */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-fechar-modal:hover { background-color: #b62d2d; }
