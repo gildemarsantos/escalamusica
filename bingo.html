@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteio do Bingo - SVP</title>
+    <!-- Puxando o arquivo CSS separado -->
+    <link rel="stylesheet" href="css/bingo.css">
+</head>
+<body>
+
+    <!-- BARRA SUPERIOR DE CONTROLES -->
+    <header class="barra-controles">
+        <div class="grupo-pesquisa">
+            <label for="inputBola" class="label-bola">Bola Sorteada</label>
+            <input type="number" id="inputBola" class="input-bola" min="1" max="75" placeholder="00">
+            <button class="btn btn-buscar" onclick="buscarPatrocinador()">Buscar</button>
+        </div>
+
+        <div>
+            <button id="btnFullscreen" class="btn btn-tela" onclick="alternarTelaCheia()">Entrar em Tela Cheia</button>
+        </div>
+    </header>
+
+    <!-- ÁREA CENTRAL DE EXIBIÇÃO -->
+    <main class="area-projecao">
+        
+        <!-- Coluna da Bola -->
+        <div class="coluna-bola">
+            <p class="label-topo">Bola Sorteada:</p>
+            <div id="containerBola" class="bola-branca">
+                <span id="txtNumero" class="numero-bola">00</span>
+            </div>
+        </div>
+
+        <!-- Coluna do Patrocinador -->
+        <div class="info-patrocinador">
+            <p class="label-topo">Patrocinador:</p>
+            <h1 id="txtNomeEmpresa" class="nome-empresa">Aguardando Sorteio</h1>
+            <p id="txtDescEmpresa" class="desc-empresa">Apoio paroquial</p>
+            <h2 id="txtTelefoneEmpresa" class="telefone-empresa">--</h2>
+        </div>
+        
+    </main>
+
+    <!-- Puxando o arquivo JavaScript separado -->
+    <script src="js/bingo.js"></script>
+</body>
+</html>

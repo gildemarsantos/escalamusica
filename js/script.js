@@ -278,6 +278,7 @@ window.addEventListener('scroll', () => {
     const subtitulo = document.getElementById('subtituloParoquia');
     const titulo = document.getElementById('tituloPastoral');
     const seloAno = document.getElementById('seloAno');
+    const seloBingo = document.getElementById('btnSeloBingo'); // Puxa o botão do Bingo
 
     const topoDaTela = window.scrollY;
 
@@ -287,7 +288,8 @@ window.addEventListener('scroll', () => {
         foto.className = "relative w-14 h-14 md:w-16 md:h-16 flex-shrink-0 transition-all duration-500 ease-in-out";
         subtitulo.className = "uppercase tracking-[2px] text-[9px] md:text-[10px] font-bold text-red-200 opacity-90 transition-all duration-500";
         titulo.className = "text-base md:text-xl font-black drop-shadow-md leading-tight transition-all duration-500";
-        seloAno.className = "bg-white/10 px-4 py-2 rounded-xl text-xs md:text-sm font-bold border border-white/20 whitespace-nowrap transition-all duration-500";
+        seloAno.className = "bg-white/10 px-4 py-2 rounded-xl text-xs md:text-sm font-bold border border-white/20 whitespace-nowrap transition-all duration-500 text-center w-full";
+        if (seloBingo) seloBingo.className = "bg-white/10 px-4 py-2 rounded-xl text-xs md:text-sm font-bold border border-white/20 whitespace-nowrap transition-all duration-500 text-center hover:bg-white/20 text-yellow-300 flex items-center justify-center gap-2 cursor-pointer w-full";
     } 
     else if (topoDaTela < 20 && encolhido) {
         encolhido = false;
@@ -295,7 +297,8 @@ window.addEventListener('scroll', () => {
         foto.className = "relative w-32 h-32 md:w-48 md:h-48 flex-shrink-0 transition-all duration-500 ease-in-out";
         subtitulo.className = "uppercase tracking-[4px] md:tracking-[6px] text-xs md:text-sm font-bold text-red-200 opacity-90 transition-all duration-500";
         titulo.className = "text-2xl md:text-5xl lg:text-6xl font-black drop-shadow-xl leading-tight transition-all duration-500";
-        seloAno.className = "bg-white/10 px-6 py-3 rounded-2xl text-sm md:text-xl font-bold border border-white/20 whitespace-nowrap transition-all duration-500";
+        seloAno.className = "bg-white/10 px-6 py-3 rounded-2xl text-sm md:text-xl font-bold border border-white/20 whitespace-nowrap transition-all duration-500 text-center w-full";
+        if (seloBingo) seloBingo.className = "bg-white/10 px-6 py-3 rounded-2xl text-sm md:text-xl font-bold border border-white/20 whitespace-nowrap transition-all duration-500 text-center hover:bg-white/20 text-yellow-300 hover:text-yellow-100 flex items-center justify-center gap-2 cursor-pointer w-full";
     }
 });
 
