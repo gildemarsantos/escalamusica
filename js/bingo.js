@@ -41,7 +41,7 @@ const patrocinadores = {
     39: { nome: "ELÉTRICA E HIDRÁULICA SÃO JOSÉ", descricao: "", telefone: "(61) 99630-9934" },
     40: { nome: "MERCEARIA VILA", descricao: "", telefone: "(61)99912-0476" },
     41: { nome: "LOJÃO DA DONA DE CASA", descricao: "", telefone: "(61) 3642-3320" },
-    42: { nome: "PADARIA DA NETE", descricao: "", telefone: "" },
+    42: { nome: "PADARIA DA NETE", descricao: "", telefone: "(61) 99939-7444" },
     43: { nome: "LOJÃO DA DONA DE CASA", descricao: "", telefone: "(61) 3632-3320" },
     44: { nome: "SUP. CRISTO REI", descricao: "", telefone: "" },
     45: { nome: "LOJÃO DA DONA DE CASA", descricao: "", telefone: "(61) 3632-3320" },
