@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Cartões - Bingo SVP</title>
+    <!-- Tailwind CSS para o visual -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Biblioteca HTML2Canvas para gerar o JPG -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        /* Proporção Widescreen para Telão (1092px de largura x 614px de altura) */
+        .card-telao {
+            width: 1092px;
+            height: 614px;
+            background: radial-gradient(circle, #7f1d1d 0%, #450a0a 100%);
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 30px 40px; 
+            box-sizing: border-box;
+            border: 4px solid #facc15;
+        }
+
+        .borda-interna {
+            position: absolute;
+            top: 15px; left: 15px; right: 15px; bottom: 15px;
+            border: 2px dashed rgba(250, 204, 21, 0.3);
+            pointer-events: none;
+        }
+
+        .premio-linha {
+            background: rgba(0, 0, 0, 0.2);
+            border-left: 8px solid #facc15;
+            padding: 10px 20px; 
+            margin-bottom: 10px; 
+            border-radius: 0 12px 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .batida-texto {
+            color: #facc15;
+            font-size: 22px; 
+            font-weight: 900;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .premio-texto {
+            font-size: 32px; 
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="bg-gray-200 p-10 flex flex-col items-center gap-10">
+
+    <div class="text-center bg-white p-6 rounded-xl shadow-md w-full max-w-4xl">
+        <h1 class="text-3xl font-black text-red-900 mb-2">Gerador Automático de Ecrãs</h1>
+        <p class="text-gray-600">Verifique os dados abaixo e clique no botão verde para transferir cada cartão em formato JPG pronto para projeção.</p>
+    </div>
+
+    <div id="container-cards" class="flex flex-col gap-16">
+        <!-- Os cartões serão injetados aqui pelo JavaScript -->
+    </div>
+
+    <script>
+        // Dados dos cartões
+        const dadosBingo = [
+            // CARTÃO LIVRE (DOADORES CORINGA)
+            {
+                titulo: "", // Deixando vazio, a caixa amarela do título desaparece
+                premios: [
+                    { batida: "Doador", item: "HERNANE - Biciclo Nunes" },
+                    { batida: "Doador", item: "" }, // Como está vazio, a linha nem será desenhada
+                    { batida: "Doador", item: "" }  // Como está vazio, a linha nem será desenhada
+                ],
+                patrocinadores: "" // Deixando vazio, a caixa de patrocinadores desaparece
+            },
+            // CARTÕES DO BINGO
+            {
+                titulo: "18/09 - SEXTA-FEIRA",
+                premios: [
+                    { batida: "1ª Batida", item: "CLIMATIZADO + AIR FRYER" },
+                    { batida: "2ª Batida", item: "FORNO ELÉTRICO" },
+                    { batida: "3ª Batida", item: "PAINEL P/ TV 65\"" }
+                ],
+                patrocinadores: "CHAVIÓ / DEVOTO / DEVOTO / PRIME PLANEJADOS"
+            },
+            {
+                titulo: "19/09 - SÁBADO",
+                premios: [
+                    { batida: "1ª Batida", item: "AIR FRYER" },
+                    { batida: "2ª Batida", item: "MICRO-ONDAS" },
+                    { batida: "3ª Batida", item: "SOFÁ" }
+                ],
+                patrocinadores: "HENRIQUE E FAMÍLIA / CIDA MELO / ITALIAN DESIGNER"
+            },
+            {
+                titulo: "20/09 - DOMINGO",
+                premios: [
+                    { batida: "1ª Batida", item: "MICRO-ONDAS" },
+                    { batida: "2ª Batida", item: "BICICLETA" },
+                    { batida: "3ª Batida", item: "GELADEIRA" }
+                ],
+                patrocinadores: "ARI SENA / TICO BIKE / USINA PARK"
+            },
+            {
+                titulo: "25/09 - SEXTA-FEIRA",
+                premios: [
+                    { batida: "1ª Batida", item: "FORNO ELÉTRICO" },
+                    { batida: "2ª Batida", item: "BICICLETA" },
+                    { batida: "3ª Batida", item: "MÁQUINA DE LAVAR" }
+                ],
+                patrocinadores: "GERALDO E KATIA / BICICLO NUNES / DEVOTO"
+            },
+            {
+                titulo: "26/09 - SÁBADO",
+                premios: [
+                    { batida: "1ª Batida", item: "TANQUINHO" },
+                    { batida: "2ª Batida", item: "BICICLETA + AIR FRYER" },
+                    { batida: "3ª Batida", item: "TV 50\"" }
+                ],
+                patrocinadores: "VEREADORA NILZA / FABRICICLO / VANIA E FAMÍLIA / LÍDER AGRO"
+            }
+        ];
+
+        const container = document.getElementById('container-cards');
+
+        // Ciclo para criar os cartões no ecrã
+        dadosBingo.forEach((bingo, index) => {
+            const cardId = `card-${index}`;
+            
+            // Monta as linhas (Doadores ou Prémios) - Só desenha se houver texto
+            let linhasPremios = '';
+            bingo.premios.forEach(p => {
+                if (p.item && p.item.trim() !== "") {
+                    linhasPremios += `
+                        <div class="premio-linha">
+                            <span class="batida-texto">${p.batida}</span>
+                            <span class="premio-texto">${p.item}</span>
+                        </div>
+                    `;
+                }
+            });
+
+            // Lógica Inteligente: Título Amarelo
+            let caixaTitulo = '';
+            if (bingo.titulo && bingo.titulo.trim() !== "") {
+                caixaTitulo = `
+                    <div class="bg-yellow-400 text-red-950 inline-block px-8 py-2 rounded-2xl text-3xl font-black shadow-lg">
+                        ${bingo.titulo}
+                    </div>
+                `;
+            }
+
+            // Lógica Inteligente: Só cria a caixa de patrocinadores se houver texto nela
+            let caixaPatrocinadores = '';
+            if (bingo.patrocinadores && bingo.patrocinadores.trim() !== "") {
+                caixaPatrocinadores = `
+                    <div class="text-center z-10 relative bg-black/30 p-4 rounded-xl border border-white/10 backdrop-blur-sm mt-auto">
+                        <p class="text-yellow-400 font-bold text-base uppercase tracking-widest mb-1">Patrocinadores Desta Data:</p>
+                        <p class="text-2xl font-black text-white leading-tight mb-2">${bingo.patrocinadores}</p>
+                        <p class="text-red-200 italic font-medium text-base">Nossos sinceros agradecimentos!</p>
+                    </div>
+                `;
+            }
+
+            // Nome seguro para o ficheiro JPG (fallback para "Card_Coringa" se não houver título)
+            const nomeFicheiro = bingo.titulo ? `Bingo_SVP_${bingo.titulo.replace(/[^a-zA-Z0-9]/g, '_')}` : `Card_Coringa_${index}`;
+            const labelBotao = bingo.titulo ? bingo.titulo : "Cartão Coringa (Sem Título)";
+
+            // Estrutura HTML final do Cartão
+            const html = `
+                <div class="flex flex-col items-center gap-4">
+                    <button onclick="baixarJPG('${cardId}', '${nomeFicheiro}')" 
+                            class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-transform hover:scale-105 flex items-center gap-2 text-lg">
+                        ⬇️ Transferir JPG: ${labelBotao}
+                    </button>
+
+                    <!-- Ecrã que será convertido em imagem -->
+                    <div id="${cardId}" class="card-telao shadow-2xl">
+                        <div class="borda-interna"></div>
+                        
+                        <!-- Topo -->
+                        <div class="text-center z-10 relative">
+                            <h2 class="text-lg font-bold uppercase tracking-[8px] text-red-200 mb-1">Paróquia São Vicente de Paulo</h2>
+                            ${caixaTitulo}
+                        </div>
+
+                        <!-- Meio (Lista) -->
+                        <div class="flex flex-col justify-center flex-1 py-4 z-10 relative px-8">
+                            ${linhasPremios}
+                        </div>
+
+                        <!-- Base (Patrocinadores - Oculta se estiver vazia) -->
+                        ${caixaPatrocinadores}
+                    </div>
+                </div>
+            `;
+            container.innerHTML += html;
+        });
+
+        // Função que gera a imagem JPG do elemento
+        function baixarJPG(idElemento, nomeArquivo) {
+            const elemento = document.getElementById(idElemento);
+            
+            html2canvas(elemento, { 
+                scale: 2, // Duplica a resolução para manter a qualidade
+                backgroundColor: "#7f1d1d" 
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = `${nomeArquivo}.jpg`;
+                link.href = canvas.toDataURL('image/jpeg', 0.95);
+                link.click();
+            });
+        }
+    </script>
+</body>
+</html>

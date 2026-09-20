@@ -1,6 +1,6 @@
 // --- BANCO DE DADOS DOS PATROCINADORES ---
 const patrocinadores = {
-    1: { nome: "NETTE CENTRO DE BELEZA", descricao: "", telefone: "" },
+    1: { nome: "NETTE CENTRO DE BELEZA", descricao: "", telefone: "(61) 99984-3137" },
     2: { nome: "TORNO E CIA", descricao: "", telefone: "" },
     3: { nome: "TANIA FORROS", descricao: "", telefone: "" },
     4: { nome: "ESTACIONAMENTO PLANALTO", descricao: "", telefone: "" },
@@ -12,19 +12,19 @@ const patrocinadores = {
     10: { nome: "NICE MODAS", descricao: "", telefone: "" },
     11: { nome: "GRANJA PARAÍSO", descricao: "", telefone: "" },
     12: { nome: "ATIVA CONTABILIDADE", descricao: "", telefone: "" },
-    13: { nome: "HERNANE", descricao: "", telefone: "" },
+    13: { nome: "HERNANE - Biciclo Nunes", descricao: "", telefone: "" },
     14: { nome: "RIACHINHO", descricao: "", telefone: "" },
     15: { nome: "GILBERTO", descricao: "", telefone: "" },
-    16: { nome: "HERNANE", descricao: "", telefone: "" },
+    16: { nome: "HERNANE - Biciclo Nunes", descricao: "", telefone: "" },
     17: { nome: "ATIVA CONTABILIDADE", descricao: "", telefone: "" },
     18: { nome: "DROGARIA VITÓRIA", descricao: "", telefone: "" },
-    19: { nome: "HERNANE", descricao: "", telefone: "" },
+    19: { nome: "HERNANE - Biciclo Nunes", descricao: "", telefone: "" },
     20: { nome: "AMCORE PROTEÇÃO VEICULAR", descricao: "", telefone: "" },
     21: { nome: "CHAVIÔ NO TOQUE", descricao: "", telefone: "" },
     22: { nome: "MATEUS M4X", descricao: "", telefone: "" },
     23: { nome: "ELEN CRISTIANE REP. MAGNUN TIRES", descricao: "", telefone: "" },
-    24: { nome: "HERNANE", descricao: "", telefone: "" },
-    25: { nome: "CARLIM", descricao: "", telefone: "" },
+    24: { nome: "HERNANE - Biciclo Nunes", descricao: "", telefone: "" },
+    25: { nome: "VILA TEM DE TUDO - Produtos Naturais", descricao: "", telefone: "" },
     26: { nome: "L.M. RECUPERADORA DE PNEUS", descricao: "", telefone: "" },
     27: { nome: "SORVETERIA BRUNA", descricao: "", telefone: "" },
     28: { nome: "VEREADOR LORÃO", descricao: "", telefone: "" },
@@ -47,7 +47,7 @@ const patrocinadores = {
     45: { nome: "LOJÃO DA DONA DE CASA", descricao: "", telefone: "" },
     46: { nome: "São Vicente de Paulo", descricao: "", telefone: "" },
     47: { nome: "São Vicente de Paulo", descricao: "", telefone: "" },
-    48: { nome: "São Vicente de Paulo", descricao: "", telefone: "" },
+    48: { nome: "SG - CONSTRUTURA", descricao: "", telefone: "(61) 99908-7126" },
     49: { nome: "São Vicente de Paulo", descricao: "", telefone: "" },
     50: { nome: "São Vicente de Paulo", descricao: "", telefone: "" },
     51: { nome: "VILA DOS BICHOS", descricao: "", telefone: "" },
@@ -57,7 +57,7 @@ const patrocinadores = {
     55: { nome: "ROSE MODAS E CITROVALE", descricao: "", telefone: "" },
     56: { nome: "São Vicente de Paulo", descricao: "", telefone: "" },
     57: { nome: "São Vicente de Paulo", descricao: "", telefone: "" },
-    58: { nome: "CARLINHO DO PASTEL", descricao: "", telefone: "" },
+    58: { nome: "CARLINHO DO PASTEL", descricao: "", telefone: "(61) 99661-7141" },
     59: { nome: "São Vicente de Paulo", descricao: "", telefone: "" },
     60: { nome: "São Vicente de Paulo", descricao: "", telefone: "" },
     61: { nome: "Fabriciclo", descricao: "", telefone: "" },
@@ -74,7 +74,7 @@ const patrocinadores = {
     72: { nome: "TORNO E CIA", descricao: "", telefone: "" },
     73: { nome: "Jeffão Espetos e Porções", descricao: "", telefone: "" },
     74: { nome: "São Vicente de Paulo", descricao: "", telefone: "" },
-    75: { nome: "NETTE CENTRO DE BELEZA", descricao: "", telefone: "" }
+    75: { nome: "NETTE CENTRO DE BELEZA", descricao: "", telefone: "(61) 99984-3137" }
 };
     // Adicione os outros patrocinadores aqui seguindo o mesmo modelo
 
