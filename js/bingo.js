@@ -69,7 +69,7 @@ const patrocinadores = {
     67: { nome: "São Vicente de Paulo", descricao: "", telefone: "" },
     68: { nome: "São Vicente de Paulo", descricao: "", telefone: "" },
     69: { nome: "São Vicente de Paulo", descricao: "", telefone: "" },
-    70: { nome: "KLYNFEST LOCAÇÕES", descricao: "", telefone: "(61) 99837-3132" },
+    70: { nome: "KLYN FEST LOCAÇÕES", descricao: "", telefone: "(61) 99837-3132" },
     71: { nome: "RIACHINHO", descricao: "", telefone: "(61) 99866 2257" },
     72: { nome: "TORNO E CIA", descricao: "", telefone: "(61) 99813-7373" },
     73: { nome: "Jeffão Espetos e Porções", descricao: "", telefone: "(61) 99983-3990" },
