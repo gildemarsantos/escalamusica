@@ -131,7 +131,30 @@ const bancoEscalas = {
         { "dia": "28 (segunda)", "horario": "19 horas", "equipe": "Stefani", "observacao": "Missa semanal", "destaque": false },
         { "dia": "29 (terça)", "horario": "19 horas", "equipe": "Gil", "observacao": "Missa semanal", "destaque": false }
     ],
-    outubro: [], novembro: [], dezembro: []
+    outubro: [
+        { "dia": "02 (sexta)", "horario": "18h30", "equipe": "Cristina", "observacao": "-", "destaque": false },
+        { "dia": "04 (domingo)", "horario": "07 horas", "equipe": "Cristina", "observacao": "Missa da Manhã", "destaque": true },
+        { "dia": "04 (domingo)", "horario": "19 horas", "equipe": "Providência Divina", "observacao": "Missa da Noite", "destaque": true },
+        { "dia": "05 (segunda)", "horario": "19 horas", "equipe": "Gil", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "06 (terça)", "horario": "19 horas", "equipe": "Gil", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "09 (sexta)", "horario": "19 horas", "equipe": "Gil", "observacao": "-", "destaque": false },
+        { "dia": "11 (domingo)", "horario": "07 horas", "equipe": "Nova Canção", "observacao": "Missa da Manhã", "destaque": true },
+        { "dia": "11 (domingo)", "horario": "19 horas", "equipe": "Novo Ser", "observacao": "Missa da Noite", "destaque": true },
+        { "dia": "12 (segunda)", "horario": "19 horas", "equipe": "Coral das Crianças", "observacao": "Nossa Senhora Aparecida", "destaque": true },
+        { "dia": "13 (terça)", "horario": "19 horas", "equipe": "Providência Divina", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "16 (sexta)", "horario": "19 horas", "equipe": "Stefani", "observacao": "-", "destaque": false },
+        { "dia": "18 (domingo)", "horario": "07 horas", "equipe": "Providência Divina", "observacao": "Missa da Manhã", "destaque": true },
+        { "dia": "18 (domingo)", "horario": "19 horas", "equipe": "Kairós", "observacao": "Missa da Noite", "destaque": true },
+        { "dia": "19 (segunda)", "horario": "19 horas", "equipe": "Providência Divina", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "20 (terça)", "horario": "19 horas", "equipe": "Stefani", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "23 (sexta)", "horario": "19 horas", "equipe": "Gil", "observacao": "-", "destaque": false },
+        { "dia": "25 (domingo)", "horario": "07 horas", "equipe": "Novo Ser", "observacao": "Missa da Manhã", "destaque": true },
+        { "dia": "25 (domingo)", "horario": "19 horas", "equipe": "Nova Canção", "observacao": "Missa da Noite", "destaque": true },
+        { "dia": "26 (segunda)", "horario": "19 horas", "equipe": "Stefani", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "27 (terça)", "horario": "19 horas", "equipe": "Providência Divina", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "30 (sexta)", "horario": "19 horas", "equipe": "Gil", "observacao": "-", "destaque": false }
+    ], 
+    novembro: [], dezembro: []
 };
 
 // Mapeamento para traduzir o número do sistema para a chave do nosso banco
@@ -248,22 +271,21 @@ function mudarMes(mesSelecionado) {
 }
 
 // ==========================================
-// 3. INICIALIZAÇÃO AUTOMÁTICA E POPUP
+// 3. INICIALIZAÇÃO AUTOMÁTICA
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Força a abertura direta e exclusiva na aba de Setembro
-    mudarMes('setembro');
-
-    // Controle do Popup Financeiro (Aparece sempre até Outubro)
-    const modalAviso = document.getElementById('modalAviso');
-    const dataAtual = new Date();
-    const mesNumero = dataAtual.getMonth(); // Setembro = 8, Outubro = 9
-
-    if (mesNumero < 9) {
-        if (modalAviso) modalAviso.classList.remove('hidden');
+    // 1. Pega o mês atual do relógio do dispositivo (0 = Janeiro, 9 = Outubro)
+    const numeroMesAtual = new Date().getMonth();
+    
+    // 2. Converte para o nome do mês da nossa lista
+    const mesAutomatico = mesesChaves[numeroMesAtual];
+    
+    // 3. Verifica se o mês tem escala e abre a aba correta
+    if (bancoEscalas[mesAutomatico]) {
+        mudarMes(mesAutomatico);
     } else {
-        if (modalAviso) modalAviso.remove();
+        mudarMes('outubro'); // Mês padrão caso não encontre
     }
 });
 
