@@ -154,7 +154,32 @@ const bancoEscalas = {
         { "dia": "27 (terça)", "horario": "19 horas", "equipe": "Providência Divina", "observacao": "Missa semanal", "destaque": false },
         { "dia": "30 (sexta)", "horario": "19 horas", "equipe": "Gil", "observacao": "-", "destaque": false }
     ], 
-    novembro: [], dezembro: []
+    novembro: [
+        { "dia": "01 (domingo)", "horario": "07 horas", "equipe": "Cristina", "observacao": "Missa da Manhã", "destaque": true },
+        { "dia": "01 (domingo)", "horario": "19 horas", "equipe": "Novo Ser", "observacao": "Missa da Noite", "destaque": true },
+        { "dia": "02 (segunda)", "horario": "08 horas", "equipe": "Nova Canção", "observacao": "FINADOS (FIEIS DEFUNTOS)", "destaque": true },
+        { "dia": "03 (terça)", "horario": "19 horas", "equipe": "Gil", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "06 (sexta)", "horario": "18 horas", "equipe": "Cristina", "observacao": "-", "destaque": false },
+        { "dia": "08 (domingo)", "horario": "07 horas", "equipe": "Nova Canção", "observacao": "Missa da Manhã", "destaque": true },
+        { "dia": "08 (domingo)", "horario": "19 horas", "equipe": "Coral das Crianças", "observacao": "Missa da Noite", "destaque": true },
+        { "dia": "09 (segunda)", "horario": "19 horas", "equipe": "Gil", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "10 (terça)", "horario": "19 horas", "equipe": "Providência Divina", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "13 (sexta)", "horario": "19 horas", "equipe": "Gil", "observacao": "-", "destaque": false },
+        { "dia": "15 (domingo)", "horario": "07 horas", "equipe": "Providência Divina", "observacao": "Missa da Manhã", "destaque": true },
+        { "dia": "15 (domingo)", "horario": "19 horas", "equipe": "Kairós", "observacao": "Missa da Noite", "destaque": true },
+        { "dia": "16 (segunda)", "horario": "19 horas", "equipe": "Providência Divina", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "17 (terça)", "horario": "19 horas", "equipe": "Stefani", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "20 (sexta)", "horario": "19 horas", "equipe": "Gil", "observacao": "-", "destaque": false },
+        { "dia": "22 (domingo)", "horario": "07 horas", "equipe": "Cristina", "observacao": "Missa da Manhã", "destaque": true },
+        { "dia": "22 (domingo)", "horario": "19 horas", "equipe": "A Definir", "observacao": "Missa da Noite", "destaque": true },
+        { "dia": "23 (segunda)", "horario": "19 horas", "equipe": "Stefani", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "24 (terça)", "horario": "19 horas", "equipe": "Providência Divina", "observacao": "Missa semanal", "destaque": false },
+        { "dia": "25 (quarta)", "horario": "20 horas", "equipe": "A Definir", "observacao": "Missa do Crisma", "destaque": true },
+        { "dia": "27 (sexta)", "horario": "19 horas", "equipe": "Gil", "observacao": "-", "destaque": false },
+        { "dia": "29 (domingo)", "horario": "07 horas", "equipe": "A Definir", "observacao": "Missa da Manhã", "destaque": true },
+        { "dia": "29 (domingo)", "horario": "19 horas", "equipe": "A Definir", "observacao": "Missa da Noite", "destaque": true },
+        { "dia": "30 (segunda)", "horario": "19 horas", "equipe": "Gil", "observacao": "Missa semanal", "destaque": false }
+    ], dezembro: []
 };
 
 // Mapeamento para traduzir o número do sistema para a chave do nosso banco
