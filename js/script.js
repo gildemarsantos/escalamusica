@@ -171,13 +171,13 @@ const bancoEscalas = {
         { "dia": "17 (terça)", "horario": "19 horas", "equipe": "Stefani", "observacao": "Missa semanal", "destaque": false },
         { "dia": "20 (sexta)", "horario": "19 horas", "equipe": "Gil", "observacao": "-", "destaque": false },
         { "dia": "22 (domingo)", "horario": "07 horas", "equipe": "Cristina", "observacao": "Missa da Manhã", "destaque": true },
-        { "dia": "22 (domingo)", "horario": "19 horas", "equipe": "A Definir", "observacao": "Missa da Noite", "destaque": true },
+        { "dia": "22 (domingo)", "horario": "19 horas", "equipe": "Kairós", "observacao": "Missa da Noite", "destaque": true },
         { "dia": "23 (segunda)", "horario": "19 horas", "equipe": "Stefani", "observacao": "Missa semanal", "destaque": false },
-        { "dia": "24 (terça)", "horario": "19 horas", "equipe": "Providência Divina", "observacao": "Missa semanal", "destaque": false },
-        { "dia": "25 (quarta)", "horario": "20 horas", "equipe": "A Definir", "observacao": "Missa do Crisma", "destaque": true },
+        { "dia": "24 (terça)", "horario": "20 horas", "equipe": "Junior e Família", "observacao": "CRISMA DAS CAPELAS", "destaque": true },
+        { "dia": "25 (quarta)", "horario": "20 horas", "equipe": "Banda Israel", "observacao": "CRISMA DA MATRIZ", "destaque": true },
         { "dia": "27 (sexta)", "horario": "19 horas", "equipe": "Gil", "observacao": "-", "destaque": false },
-        { "dia": "29 (domingo)", "horario": "07 horas", "equipe": "A Definir", "observacao": "Missa da Manhã", "destaque": true },
-        { "dia": "29 (domingo)", "horario": "19 horas", "equipe": "A Definir", "observacao": "Missa da Noite", "destaque": true },
+        { "dia": "29 (domingo)", "horario": "07 horas", "equipe": "Ana Luiza", "observacao": "Missa da Manhã - Encontro MECE", "destaque": true },
+        { "dia": "29 (domingo)", "horario": "19 horas", "equipe": "Nova Canção", "observacao": "Missa da Noite", "destaque": true },
         { "dia": "30 (segunda)", "horario": "19 horas", "equipe": "Gil", "observacao": "Missa semanal", "destaque": false }
     ], dezembro: []
 };
